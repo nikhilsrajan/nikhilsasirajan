@@ -48,7 +48,7 @@ body {
     background: black;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
-    padding: 2px;
+    padding: 0;
 }
 
 #navbar ul {
@@ -59,11 +59,29 @@ body {
 
 #navbar li {
     display: inline;
-}
-
-#navbar a {
     color: yellow;
     text-decoration: none;
     font-size: 20px;
     padding: 0 15px;
+}
+
+#navbar li:hover {
+    background: yellow;
+    color: black;
+    font-weight: bold;
+}
+
+#navbar-content {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background-color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 50px;
+    color: black;
+    background: yellow;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 250px;
+    display: none;
 }
