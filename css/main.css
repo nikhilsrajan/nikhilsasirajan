@@ -44,32 +44,37 @@ body {
     }
 }
 
-#navbar {
+.navbar {
     background: black;
     font-family: 'Courier New', Courier, monospace;
-    text-align: center;
     padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
-#navbar ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-#navbar li {
-    display: inline;
+.navbar .item {
     color: yellow;
     text-decoration: none;
     font-size: 20px;
-    padding: 0 15px;
+    flex: 1;
+    text-align: center;
 }
 
-#navbar li:hover {
+.navbar .item:hover {
     background: yellow;
     color: black;
     font-weight: bold;
 }
+
+@media(min-width:600px) {
+    .navbar .margin {
+        flex: 4;
+    }
+    .navbar .item {
+        flex: 150px;
+    }
+}
+
 
 #navbar-content {
     width: 100%;
