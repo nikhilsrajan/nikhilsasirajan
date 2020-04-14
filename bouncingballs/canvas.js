@@ -16,7 +16,7 @@ function Circle(x, y, radius, dx, dy) {
     this.radius = radius;
     this.dx = dx;
     this.dy = dy;
-    this.g = 1;
+    this.g = 0.6;
 
     this.draw = function() { 
         c.beginPath();
