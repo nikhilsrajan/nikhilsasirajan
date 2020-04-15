@@ -6,6 +6,14 @@ canvas.style.background = 'black';
 
 var c = canvas.getContext('2d');
 
+var frame_rate = 1/40; // seconds
+var frame_delay = frame_rate * 1000; // ms
+
+var num_of_circles = 100 * canvas.width / 1396;
+var gravity = 1;
+var tol_y = 0;
+var tol_dy = 0;
+
 function clearCanvas() {
     c.clearRect(0, 0,  canvas.width, canvas.height);
 }
@@ -16,29 +24,35 @@ function Circle(x, y, radius, dx, dy) {
     this.radius = radius;
     this.dx = dx;
     this.dy = dy;
-    this.g = 0.6;
+    this.dy_overflow = 0;
+    this.elasticity = 0.75;
+    this.overflow = false;
 
     this.draw = function() { 
         c.beginPath();
         c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-        c.strokeStyle = 'rgba(255, 50, 50, 0.3)';
+        c.strokeStyle = 'rgba(255, 50, 50, 0.5)';
         c.stroke();
         c.fillStyle = c.strokeStyle;
         c.fill();
     }
     this.update = function() {
-        if(this.x + this.radius > canvas.width 
-            || this.x - this.radius < 0) {
-            this.dx = -this.dx;
-        }
-        if(this.y + this.radius > canvas.height) {
-            this.dy = -this.dy;
+        if(Math.abs(this.dy) > tol_dy || (this.y <= canvas.height - this.radius - tol_y)) {
+            if(this.y + this.dy <= canvas.height - this.radius) {
+                this.y += this.dy;
+                this.dy += gravity;
+            } else {
+                let t_to_collision = (canvas.height - this.radius - this.y) / this.dy;
+                let t_since_collision = 1 - t_to_collision; 
+                this.dy *= -this.elasticity;
+                this.y = canvas.height - this.radius + this.dy  * (1 - t_to_collision) + 0.5 * gravity * t_since_collision * t_since_collision;
+                this.dy += gravity * (1 - t_to_collision);
+                // console.log(`H  = ${canvas.height - this.radius}\ny  = ${this.y}\ndy = ${this.dy}\nt = ${t_to_collision}`);
+            }
+        } else {
             this.y = canvas.height - this.radius;
+            this.dy = 0;
         }
-        this.x += this.dx;
-
-        this.dy += this.g;
-        this.y += this.dy;
     }
 }
 
@@ -67,19 +81,19 @@ dx = function() {
     return [-1, 1][Math.round(Math.random())] * (Math.random() + 1);
 }
 y = function() {
-    return Math.random() * (canvas.height - 2*radius) + radius;
+    return Math.random() * (canvas.height - 2*radius) * 3/4 + radius;
+    // return canvas.height - radius - 600;
 }
 dy = function() {
     return [-1, 1][Math.round(Math.random())] * (Math.random() + 1);
+    // return 0;
 }
 
 circles_array = new CirclesArray();
 
-for (var i = 0; i < 50; i++) { 
+for (var i = 0; i < num_of_circles; i++) { 
     circles_array.push(new Circle(x(), y(), radius, dx(), dy()));
 }
-
-console.log(circles_array);
 
 function animate() {
     requestAnimationFrame(animate);
