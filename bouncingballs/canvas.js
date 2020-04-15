@@ -10,7 +10,7 @@ var frame_rate = 1/40; // seconds
 var frame_delay = frame_rate * 1000; // ms
 
 var num_of_circles = 100 * canvas.width / 1396;
-var gravity = 1;
+var gravity = 0.25;
 var tol_y = 0;
 var tol_dy = 0;
 
