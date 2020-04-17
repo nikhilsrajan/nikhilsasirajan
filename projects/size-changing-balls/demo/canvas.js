@@ -29,10 +29,22 @@ window.addEventListener('resize',
 
 var num_of_circles = 1000;
 var radius = 10;
-var radius_of_influence = 30;
+var radius_of_influence = 30;  
 var multiplier = 5;
 var increase_rate = 5;
 var decrease_rate = 1;
+var perform_resize = true;
+
+window.addEventListener('keydown',
+    function(e) {   
+        if(perform_resize) {
+            perform_resize = false;
+        } else {
+            perform_resize = true;
+        }
+        console.log(`perform_resize = ${perform_resize}`);
+    }
+);
 
 var _1_ = 255;
 var _0_ = 50;
@@ -75,7 +87,7 @@ function Circle(radius, x, y, dx, dy, fillStyle) {
             }
         }
         if(this.y + this.radius > canvas.height || this.y - this.radius < 0) {
-            this.dy = -this.dy;
+            this.dy  = -this.dy;
             if(this.y + this.radius > canvas.height) {
                 this.y = canvas.height - this.radius;
             } else {
@@ -86,7 +98,7 @@ function Circle(radius, x, y, dx, dy, fillStyle) {
         // Interactivity
         if(Math.abs(mouse.x - this.x) < radius_of_influence
             && Math.abs(mouse.y - this.y) < radius_of_influence) {
-            if(this.radius < radius * multiplier) {
+            if(this.radius < radius * multiplier && perform_resize ) {
                 this.radius += increase_rate;
             }
         } else if(this.radius > radius) {
