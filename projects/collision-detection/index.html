@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>collision detection</title>
+    <meta name="description" content="collision detection">
+    <meta name="author" content="Nikhil Sasi Rajan">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <link rel="icon" href="../../assets/favicon.ico">
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <div class="row" style="margin-top:10rem;"></div>
+        <div class="row">
+            <div class="six columns">
+                <div class="row">
+                    <h2>collision detection</h2>
+                </div>
+                
+                <p class="demo"><a href="demo" target="_blank">[Jump to demo!]</a></p>
+
+                <p>After simulating gravity in <a href="../bouncing-balls/">"bouncing-balls"</a> I wanted to simulate collision. I thought of writing the logic which would check how close every ball is to the other ball and then accordingly "perform" collision (which is terrible way of doing so, O(n!) time complexity). But I felt that I should implement a general method to check for collision of all sorts.</p>
+
+                <p>What I mean is, if I had proceeded with writing the logic to check collision between the balls, there would be two logics of check in place. One to check between the balls, and another to check if the balls were colliding with the edges of the browser.</p>
+
+                <p>So I googled what are the algorithms that are used for collision detection in 2D, and a name that I kept seeing everywhere was SAT &ndash; Separate Axis Theorem.</p>
+
+                <p>How the theorem works is as follows.</p>
+
+                <p>Suppose there are two objects in front of you that you want to know if they are touching. If you don't see a gap between the two objects, you can't be sure that they are touching, since it is possible that they could be just if front of eachother, making it seem as though they are touching from where you are.</p>
+
+            
+            </div>
+
+        <div class="six columns">
+            <p>The theorem says that if you walk around them, 360&deg;, and still see no gap between them, then you can be sure that they are touching eachother, provided that the objects are convex, i.e. have no cavities, or dents, or holes.</p>
+
+            <p>This theorem not just gives this logic, but also gives steps to follow to make this check in polynomial time.</p>
+
+            <p>I looked up online and found a video by <a href="https://www.youtube.com/channel/UC-yuWVUplUJZvieEligKBkA" target="_blank">javidx9</a>, <a href="https://www.youtube.com/watch?v=7Ik2vowGcU0" target="_blank">"Convex Polygon Collisions #1"</a>. In this video he goes through line-by-line to implement the logic to check collision between convex polygons. But he does it in C++. And it appeared that he was using a renderer he had made earier which he must have explained in a previous video, and some library to check which key was being pressed at the given time.</p>
+
+            <p>I am going through the video line-by-line, but translating C++ to JavaScript.</p>
+
+            <p>In the demo, the arrow keys control the triangle, and the keys 'W', 'A', 'S', 'D' control the pentagon. The square is stationary.</p>
+        </div>
+
+        </div>
+
+        <div class="row" style="margin-top:2rem;"></div>
+        <p><a href="../../index.html#bouncing-balls">[Go back]</a></p>
+    </div>
+</body>
+</html>
