@@ -156,7 +156,7 @@
   /* Links
   â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“ */
   a {
-    color: #F2AA4CFF;
+    color: #FEE715FF;
     text-decoration:none;}
   a:hover {
     color:#FEE715FF;
@@ -165,8 +165,8 @@
   
   /* Lists
   â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“ */
-  ul {
-    list-style: none; 
+  ul { 
+    list-style: none;
     line-height:2.4rem;
     margin-left:2.4rem;
     margin-top:0;
@@ -185,11 +185,10 @@
     font-size: 90%; }
   li {
     margin-bottom: 1rem; 
-  
   }
   
   ul > li:before {
-    content: "-";
+    /* content: "-"; */
     position:absolute;
     margin-left: -1.2em;
   }
@@ -202,14 +201,13 @@
     margin: 0 .2rem;
     font-size: 90%;
     white-space: nowrap;
-    background: #F1F1F1;
-    border: 1px solid #E1E1E1;
+    background: black;
+    /* border: 1px solid #F2AA4CFF; */
     border-radius: 4px; }
-  pre > code {
-    display: block;
-    padding: 1rem 1.5rem;
-    white-space: pre; }
-  
+
+  .equation {
+      text-align: center;
+  }
   
   /* Tables
   â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“ */
@@ -217,7 +215,7 @@
   td {
     padding: 12px 15px;
     text-align: left;
-    border-bottom: 1px solid #E1E1E1; }
+    border-bottom: 1px solid #F2AA4CFF; }
   th:first-child,
   td:first-child {
     padding-left: 0; }
@@ -276,7 +274,7 @@
     margin-top: 3rem;
     margin-bottom: 3rem;
     border-width: 0;
-    border-top: 1px solid #cabbbb;
+    border-top: 1px solid #F2AA4CFF;
     width:100%;
     text-align:left;
     margin-left:0;}
@@ -290,3 +288,8 @@
     content: "";
     display: table;
     clear: both; }
+
+  /* Self added */
+  .demo a{
+    font-size: 1.5em;;
+  }

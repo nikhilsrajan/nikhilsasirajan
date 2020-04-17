@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>bouncing balls</title>
+    <meta name="description" content="bouncing balls">
+    <meta name="author" content="Nikhil Sasi Rajan">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <link rel="icon" href="../../assets/favicon.ico">
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing Balls</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row" style="margin-top:10rem;"></div>
+        <div class="row">
+            <div class="six columns">
+                <div class="row">
+                    <h2>bouncing balls</h2>
+                </div>
+                
+                <p class="demo"><a href="demo" target="_blank">[Jump to demo!]</a></p>
+
+                <p>This is the my first physics-y visualization stuff that I have made using JavaScript, primarily using HTML5 Canvas.</p>
+
+                <p>It was me copying line-to-line the third tutorial by <a href="https://www.youtube.com/channel/UC9Yp2yz6-pwhQuPlIDV_mjA" target="_blank">Chris Courses</a> on YouTube, <a href="https://www.youtube.com/watch?v=yq2au9EfeRQ" target="_blank">"Animating the Canvas | HTML5 Canvas Tutorial for Beginners - Ep. 3"</a>... and some changes of my own.</p>
+
+                <p>That video covers how to create a ball and make it bounce around as it hits the borders of the screen. Coding gravity into the animation was my addition to the video, although he does talk about <a href="https://www.youtube.com/watch?v=3b7FyIxWW94" target="_blank">how to do the same</a> few videos later. I would like to interject here that they way I have done is a bit more robust <a href="demo/canvas.js" target="_blank">[source]</a>.</p>
+
+                <p>The main snippet of the code which has the physics is linked <a href="snippet.js" target="_blank">here</a>.</p>
+
+            </div>
+
+        <div class="six columns">
+            <p>A case that I took into account in addition to updating the velocity to account for gravity was the situatation when the 'dy' value is such that 'y' + 'dy' crosses the canvas border.</p>
+
+            <p>For that situation I calulated the time it was going to take for the ball to collide the border, how much time was going to remain after the collision for the next time step, velocity that get's lost because of the ball's plasticity, and the new position of the ball.</p>
+
+            <p>Calculating the new position using the remaining time what was left is done using the following formula:  
+            </p>
+            
+            <p class="equation">y = ut + &half;at&sup2;</p>  
+
+            <p>I had initially missed out the &half;at&sup2; part and some balls kept viberating on the floor when it was supposed to be at rest. It was quite interesting to see how precise math is.</p>
+        </div>
+
+        </div>
+
+        <div class="row" style="margin-top:10rem;"></div>
+        <p><a href="../../index.html#bouncing-balls">[Go back]</a></p>
+    </div>
+</body>
+</html>
