@@ -1,7 +1,8 @@
 :root {
-  --content-color: #F2AA4CFF;
+  --content-color: #f2aa4cff;
   --content-color-translucent: #f2aa4c80; 
   --bg-color: #000000;
+  --main-font: monospace;
 }
 
 
@@ -104,7 +105,7 @@
     font-size: 1.9em; /* currently ems cause chrome bug misinterpreting rems on body element */
     line-height: 1.6;
     font-weight: 300;
-    font-family: monospace;
+    font-family: var(--main-font);
     background-color: var(--bg-color);
     color: var(--content-color); }
   
@@ -119,7 +120,7 @@
     margin-top: 30rem;
     margin-bottom: 20rem;
     font-weight: 500; 
-    font-family: monospace;
+    font-family: var(--main-font);
     color: inherit;
     letter-spacing: -.15rem;
   }
@@ -128,7 +129,7 @@
     margin-top: 0;
     margin-bottom: 12rem;
     font-weight: 500; 
-    font-family: monospace;
+    font-family: var(--main-font);
     color: inherit;
     letter-spacing:-.05rem;
   }
@@ -137,7 +138,7 @@
     margin-top: 0;
     margin-bottom: 2.5rem;
     font-weight: 700; 
-    font-family: monospace;
+    font-family: var(--main-font);
     color: inherit;
     letter-spacing:.3rem;
   }
