@@ -113,6 +113,19 @@ function UpdateShapes() {
     for(i = 0; i < shapes.length; ++i) {
         shapes[i] = UpdateShape(shapes[i]);
     }
+
+    i = 0;
+    let j;
+    for(; i < shapes.length; ++i) {
+        let overlap = false;
+        for(j = i + 1; j < shapes.length && !overlap; ++j) {
+            overlap = ShapeOverlap_SAT(shapes[i], shapes[j])
+        }
+        if(overlap) {
+            shapes[i].overlap = overlap;
+            shapes[j-1].overlap = overlap;
+        }
+    }
 }
 
 var time_delay = 0.01;
@@ -202,7 +215,7 @@ function ShapeOverlap_SAT(r1, r2) {
 
             // Checking if the extents overlap
             // If at any point they dont, we terminate and return false
-            if (!(max_pol2 >= min_poly1 && max_poly1 >= min_poly2)) {
+            if (!(max_poly2 >= min_poly1 && max_poly1 >= min_poly2)) {
                 return false;
             }
         }
