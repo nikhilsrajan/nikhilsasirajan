@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ball-ball collision</title>
+    <meta name="description" content="ball-ball collision">
+    <meta name="author" content="Nikhil Sasi Rajan">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../../css/normalise.css">
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <link rel="icon" href="../../assets/favicon.ico">
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <div class="row" style="margin-top:10rem;"></div>
+        <div class="row">
+            <div class="six columns">
+                <div class="row">
+                    <h2>ball-ball collision</h2>
+                </div>
+                
+                <p class="demo"><a href="demo" target="_blank">[Jump to demo!]</a></p>
+
+                <p>I was slowing myself down by thinking of how I could optimise the ball-ball collision detection before even trying to make a simple one. I would have bogged myself with quad-trees and it's construction, which wouldn't have been un-useful, but I would not know how much useful it was to have that optimisation without having made an unoptimised version.</p>
+
+                <p>So here I go, starting to design a ball-ball collision simulator.</p>
+
+                <p>It is an add-on to the bouncing balls, except that this times each ball would interact with eachother.</p>
+
+                <p>I plan to be as accurate as I can in my physics (newtonianly speaking of-course).</p>
+
+                <p>I would have a class called ball which would store the following properties:<br>
+                &ThickSpace;- radius<br>
+                &ThickSpace;- position<br>
+                &ThickSpace;- mass<br>
+                &ThickSpace;- velocity<br></p>    
+                
+                <p>Acceleration is seen as a property from the external - the system, following Newton's first law.</p>
+
+                <p>For this version I would consider the collison with the borders of the canvas as a system event. The whole reason why I had gone about learning about convex polygon collision detection was to come up with a general way to handle them. I guess for now I would be postponing that.</p>
+
+                <p>This time I would also consider time. In the earlier simulations, time was whatever requestAnimationFrame decided. However I had noticed that this led to non-uniformity in the frame-rate, especially in my <a href="../bouncing-balls/">"bouncing balls"</a> project. The animation was way too fast on mobile phones as compared to the PC browser.</p>
+            </div>
+
+        <div class="six columns">
+            <p></p>
+        </div>
+
+        <div class="row" style="margin-top:2rem;"></div>
+        <p class="go"><a href="demo/canvas.js" target="_blank">[Source]</a></p>
+        <p class="go"><a href="../../index.html#ball-ball-collision">[Go back]</a></p>
+    </div>
+</body>
+</html>
