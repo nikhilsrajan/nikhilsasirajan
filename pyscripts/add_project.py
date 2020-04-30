@@ -21,7 +21,8 @@ canvas_html_template = """<!DOCTYPE html>
 </head>
 <body>
     <canvas></canvas>
-    <script src="canvas.js"></script>
+    <script src="../../../js/canvas_setup.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
 """
@@ -76,10 +77,6 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 canvas.style.background = 'black';
 var c = canvas.getContext('2d');
-
-var clearCanvas = function() {
-    c.clearRect(0, 0, canvas.width, canvas.height);
-}
 
 window.addEventListener('resize',
     function() {

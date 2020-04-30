@@ -1,18 +1,4 @@
 var canvas = document.querySelector('canvas');
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-canvas.style.background = 'black';
-
-console.log(window.innerWidth);
-
-window.addEventListener('resize',
-    function(e) {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-);
-
 var c = canvas.getContext('2d');
 
 function clearCanvas() {
