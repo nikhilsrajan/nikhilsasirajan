@@ -65,7 +65,7 @@ intro_html_template = """<!DOCTYPE html>
         </div>
 
         <div class="row" style="margin-top:2rem;"></div>
-        <p class="go"><a href="demo/canvas.js" target="_blank">[Source]</a></p>
+        <p class="go"><a href="demo/main.js" target="_blank">[Source]</a></p>
         <p class="go"><a href="../../index.html#{folder_name}">[Go back]</a></p>
     </div>
 </body>
