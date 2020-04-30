@@ -3,9 +3,17 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 canvas.style.background = 'black';
 var c = canvas.getContext('2d');
+
 var clearCanvas = function() {
     c.clearRect(0, 0, canvas.width, canvas.height);
 }
+
+window.addEventListener('resize',
+    function() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+);
 
 var mouse = {
     x: undefined,
@@ -19,13 +27,6 @@ function updateMouseXY(event) {
 
 window.addEventListener('mousemove', updateMouseXY);
 window.addEventListener('touchmove', updateMouseXY);
-
-window.addEventListener('resize',
-    function() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-);
 
 var num_of_circles = 1000;
 var radius = 10;
