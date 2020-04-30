@@ -138,7 +138,7 @@ def add_project(project_name):
         fout.write(canvas_html_template.format(title=title))
 
     # create canvas js file
-    with open(demo_folderpath + '/canvas.js', 'w') as fout:
+    with open(demo_folderpath + '/main.js', 'w') as fout:
         fout.write(canvas_js_template)
 
     # add project to main html
